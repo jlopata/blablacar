@@ -1,0 +1,26 @@
+<div>
+    <form name="loginForm" method="post">
+        <div class="row">
+            <div class="small-6 small-centered columns">
+                <label>Login:
+                    <input type="text" name="username" ng-model="login" required>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-6 small-centered columns">
+                <label>Hasło:
+                    <input type="password" name="password" ng-model="password" required>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-6 small-centered columns">
+                <div class="button-group">
+                    <a class="button" ng-click="loginUser()" ng-disabled="loginForm.$invalid" href="#main">Login</a>
+                    <a href="#register" class="button">Register</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

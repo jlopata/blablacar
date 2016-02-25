@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-6 columns"><label>From: <input type="search" ng-model="search.from" placeholder="Search"></label>
+            </div>
+            <div class="small-6 columns"><label>To: <input type="search" ng-model="search.to"
+                                                           placeholder="Search"></label></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 columns button secondary" ng-repeat="trip in trips | filter:search"
+         ng-click="setFolder(trip)">
+        <div class="small-1 columns"><a href="#tripDetail"><i class="fa fa-taxi fa-4x"></i></a></div>
+        <div class="small-11 columns">
+            <div class="row">
+                <div class="small-3 columns trip-div"><a class="button small expanded primary">From:
+                    {{trip.from}}</a></div>
+                <div class="small-3 columns trip-div"><a class="button small expanded primary">To: {{trip.to}}</a>
+                </div>
+                <div class="small-6 columns trip-div"><a class="button small expanded primary">Date:
+                    {{trip.date}}</a></div>
+            </div>
+        </div>
+    </div>
+</div>

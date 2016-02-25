@@ -1,0 +1,32 @@
+<div>
+    <form name="register" method="post">
+        <div class="row">
+            <div class="small-12 columns">
+                <div class="row">
+                    <div class="small-4 columns">
+                        <label>Login:
+                            <input type="text" ng-model="user.email" required >
+                        </label>
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Password:
+                            <input type="password" ng-model="user.password" required>
+                        </label>
+                    </div>
+                    <div class="small-4 columns">
+                        <label>Name:
+                            <input type="text" ng-model="user.name" required>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="medium-2 medium-offset-5 columns">
+                        <label class="text-center">
+                            <input type="submit" class="button" ng-click="registerUser()" ng-disabled="register.$invalid"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

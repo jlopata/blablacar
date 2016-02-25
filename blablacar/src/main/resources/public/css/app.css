@@ -1,0 +1,9 @@
+.trip-div {
+  text-align: center;
+}
+
+.trip-span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}

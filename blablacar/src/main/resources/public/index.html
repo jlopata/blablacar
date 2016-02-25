@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="http://use.fonticons.com/63a3da03.js"></script>
+    <script src="js/angular-1.5.0/angular.min.js"></script>
+    <script src="js/angular-1.5.0/angular-route.min.js"></script>
+    <script src="js/angular-1.5.0/angular-cookies.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-controller="mainController">
+
+<header>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Bla Bla Car</li>
+                <li><a href="#home"><i class="fa fa-home fa-2x"></i></a></li>
+                <li><a href="#trips"><i class="fa fa-taxi fa-2x"></i></a></li>
+                <li><a href="#add"><i class="fa fa-plus-circle fa-2x"></i></a></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><a href="#user"><i class="fa fa-user fa-2x"></i></a></li>
+                <li><a href="#login" ng-click="logoutUser()">log out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+<div id="main">
+
+    <div ng-view></div>
+
+</div>
+
+</body>
+</html>
