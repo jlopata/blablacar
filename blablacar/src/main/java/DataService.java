@@ -2,9 +2,18 @@ import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -56,6 +65,26 @@ public class DataService {
         }
         User user = new User(id, name, email, password);
         userRepository.save(user);
+        return true;
+    }
+
+    public boolean createTrip(String from, String to, String price, String seats, String date, String user) {
+        List<TripDto> list = new ArrayList<>();
+        date = date.replaceAll(".000Z", "");
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        LocalDateTime tmpDate = LocalDateTime.parse(date, formatter);
+        Date out = Date.from(tmpDate.atZone(ZoneId.systemDefault()).toInstant());
+        TripDto trip = new TripDto(
+                list.size() > 0 ? list.size() + 1 : 1,
+                user,
+                out ,
+                from,
+                to,
+                price,
+                Integer.parseInt(seats),
+                new ArrayList<Integer>()
+        );
+        tripsRepository.save(trip);
         return true;
     }
 }

@@ -7,9 +7,14 @@ public class App {
 
         DataService dataService = new DataService();
 
-        get("/hello", (req, res) -> "Hello World");
-
-        get("/generate", (req, res) -> dataService.generateTrips());
+        post("/addTrip", (req,res) -> dataService.createTrip(
+                req.queryParams("from"),
+                req.queryParams("to"),
+                req.queryParams("price"),
+                req.queryParams("seats"),
+                req.queryParams("date"),
+                req.queryParams("user")
+        ));
 
         get("/trip", "application/json" ,(req, res) -> dataService.getTrips());
 

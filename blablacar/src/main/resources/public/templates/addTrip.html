@@ -7,18 +7,27 @@ private String to;
 private String price;
 private int totalSeats;
 private List<Integer> passengers = new ArrayList<>();-->
-
-<div class="row">
-    <div class="small-12 columns">
-        <div class="row">
-            <div class="small-4 columns"><label>From<input type="text" ng-model=""></label></div>
-            <div class="small-4 columns"><label>To<input type="text" ng-model=""></label></div>
-            <div class="small-4 columns"><label>Date<input type="datetime-local" ng-model=""></label></div>
-        </div>
-        <div class="row">
-            <div class="small-4 columns"><label>Price<input type="text" ng-model=""></label></div>
-            <div class="small-4 columns"><label>Seats<input type="number" ng-model=""></label></div>
-            <div class="small-4 columns"><label><input type="text" ng-model=""></label></div>
+<form name="addTripForm" method="post">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row">
+                <div class="small-6 columns"><label>From<input type="text" ng-model="trip.from" required></label></div>
+                <div class="small-6 columns"><label>To<input type="text" ng-model="trip.to" required></label></div>
+            </div>
+            <div class="row">
+                <div class="small-4 columns"><label>Price<input type="text" ng-model="trip.price" required></label>
+                </div>
+                <div class="small-4 columns"><label>Seats<input type="number" ng-model="trip.seats" required></label>
+                </div>
+                <div class="small-4 columns"><label>Date<input type="datetime-local" ng-model="trip.date"
+                                                               required></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns"><a href="#main" class="button" ng-disabled="addTripForm.$invalid"
+                                                 ng-click="addTrip()"></i>Add
+                    Trip</a></div>
+            </div>
         </div>
     </div>
-</div>
+</form>

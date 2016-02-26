@@ -9,10 +9,9 @@ import java.util.List;
 @Slf4j
 public class TripsRepository{
 
-    String tripsDb = "/home/jlopata/Documents/studia/blablacar/blablacar/src/main/resources/public/database/trips.dat";
+    String tripsDb = "C:\\Users\\Jerry\\Documents\\PAI\\git\\bla\\blablacar\\src\\main\\resources\\public\\database\\trips.dat";
 
     public void save(TripDto trip){
-        log.debug("saving object to database");
         FileOutputStream fos = null;
         try{
             fos = new FileOutputStream(tripsDb, true);
@@ -37,7 +36,6 @@ public class TripsRepository{
             fis = new FileInputStream(tripsDb);
             while (true) {
                 if(fis != null) {
-                    log.debug("loading object from database");
                     ObjectInputStream in = new ObjectInputStream(fis);
                     TripDto tmp = (TripDto) in.readObject();
                     if (tmp != null) {

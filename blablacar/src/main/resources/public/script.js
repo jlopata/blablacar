@@ -38,8 +38,6 @@ var app = angular.module('app', ['ngRoute', 'ngCookies']);
                  url: "/trip"
              }).then(function successCallback(response) {
                 $scope.trips = response.data;
-                console.log(response.data);
-                console.log($scope.trips);
              }, function errorCallback(response){
              });
          };
@@ -80,6 +78,23 @@ var app = angular.module('app', ['ngRoute', 'ngCookies']);
             })
         };
 
+        $scope.addTrip = function () {
+            $http({
+                method: 'POST',
+                url: "/addTrip" ,
+                params : {
+                    "from" : $scope.trip.from,
+                    "to" : $scope.trip.to,
+                    "price" : $scope.trip.price,
+                    "seats" : $scope.trip.seats,
+                    "date" : $scope.trip.date,
+                    "owner" : $cookies.name
+                },
+            }).then(function successCallback(response) {
+            }, function errorCallback(response) {
+            })
+        };
+
         $scope.setFolder = function (folder) {
             $scope.selected = folder;
             console.log($scope.selected);
@@ -94,10 +109,16 @@ var app = angular.module('app', ['ngRoute', 'ngCookies']);
             password : null,
             name : null,
         };
+        $scope.trip = {
+            from : null,
+            to : null,
+            price : null,
+            seats : null,
+            date : null
+        };
 
         $scope.init = function() {
             $scope.getAllTrips();
-            console.log($scope.trips);
 
         };
 
